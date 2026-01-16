@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayman Taha | Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f1f5f9;
+            --gray: #94a3b8;
+            --border: #334155;
+            --card-bg: rgba(15, 23, 42, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #1e1b4b 100%);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            font-size: 1.3rem;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .dev-tag {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        /* About */
+        .about {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .about p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--light);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* New Banner Design - Full Image Display */
+        .project-banner-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-banner {
+            width: 100%;
+            display: block;
+            /* Banner ratio: 2000x600 = 10:3 */
+            aspect-ratio: 10 / 3;
+            object-fit: contain;
+            background-color: #0f172a;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-banner {
+            transform: scale(1.02);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--light);
+        }
+
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-pink {
+            background: linear-gradient(90deg, #ec4899, #be185d);
+            color: white;
+        }
+
+        .btn-pink:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        /* Support Section */
+        .support-section {
+            text-align: center;
+            margin: 80px auto;
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .support-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .support-desc {
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .support-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .custom-amount {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .currency {
+            padding: 0 15px;
+            color: var(--gray);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .amount-input {
+            background: transparent;
+            border: none;
+            padding: 12px 15px;
+            color: var(--light);
+            width: 120px;
+            font-size: 1rem;
+        }
+
+        .amount-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 0 30px;
+            color: var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .license {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .project-banner {
+                aspect-ratio: 16 / 5;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .project-banner {
+                aspect-ratio: 16 / 6;
+            }
+            
+            .project-actions {
+                flex-direction: column;
+            }
+            
+            .support-actions {
+                flex-direction: column;
+            }
+            
+            .custom-amount {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .support-section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .project-content {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .project-banner {
+                aspect-ratio: 16 / 7;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i>
+                    Ayman<span>Taha</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#support">Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="dev-tag">DEVELOPER</div>
+            <h1>Ayman Taha</h1>
+            <p class="hero-subtitle">
+                Programming enthusiast who loves learning, experimenting, and sharing open-source projects under the MIT license.
+            </p>
+            
+            <div class="social-icons">
+                <a href="https://github.com/aymantaha3345" class="social-icon" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com/aymantaha.xyz" class="social-icon" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:aymantaha89pp@gmail.com" class="social-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>
+                I'm a passionate programmer who enjoys exploring new technologies and building meaningful projects. 
+                I believe in learning through practice and sharing knowledge with the community. 
+                All my projects are open-source and released under the MIT license for anyone to use and learn from.
+            </p>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: GENEXUS-AI -->
+                <div class="project-card">
+                    <div class="project-banner-container">
+                        <!-- Banner with original aspect ratio (2000x600 = 10:3) -->
+                        <img src="https://github.com/aymantaha3345/GENEXUS-AI/raw/main/src/Banner.jpg?raw=true" 
+                             alt="GENEXUS-AI Banner" 
+                             class="project-banner">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">GENEXUS-AI</h3>
+                        <p class="project-description">
+                            GENEXUS-AI is a production-grade API server that unifies Pollinations.ai capabilities into a single, elegant interface. Engineered for enterprise deployment with zero-configuration setup, this platform delivers unmatched performance, reliability, and developer experience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Node.js 18+</span>
+                            <span class="tech-tag">Open Source</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/aymantaha3345/GENEXUS-AI" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Project
+                            </a>
+                            <a href="https://github.com/aymantaha3345/GENEXUS-AI" class="btn btn-secondary" target="_blank" onclick="event.stopPropagation();">
+                                <i class="fas fa-star"></i>
+                                Star on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="support-section">
+            <h2 class="support-title">Support My Work</h2>
+            <p class="support-desc">
+                If you appreciate my projects and want to support my journey as a developer, 
+                you can contribute in different ways. Every bit of support helps me create more open-source projects.
+            </p>
+            
+            <div class="support-actions">
+                <a href="https://github.com/aymantaha3345/GENEXUS-AI" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-star"></i>
+                    Star on GitHub
+                </a>
+                <a href="https://instagram.com/aymantaha.xyz" class="btn btn-pink" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    Follow on Instagram
+                </a>
+                
+                <div style="width: 100%; margin-top: 30px;">
+                    <p style="color: var(--gray); margin-bottom: 15px; font-size: 0.95rem;">Optional Financial Support (via PayPal)</p>
+                    <p style="color: var(--gray); font-size: 0.85rem; margin-bottom: 20px; opacity: 0.8;">Enter any amount you wish to donate:</p>
+                    <div class="custom-amount">
+                        <span class="currency">$</span>
+                        <input type="number" class="amount-input" placeholder="0.00" min="0" step="0.01" id="donationAmount" value="10.00">
+                        <button class="btn btn-primary" id="donateButton" style="border-radius: 0 8px 8px 0;">
+                            <i class="fab fa-paypal"></i>
+                            Donate
+                        </button>
+                    </div>
+                    <p style="color: var(--gray); font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">
+                        Donations help me continue developing open-source projects
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="footer-links">
+            <a href="https://github.com/aymantaha3345" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://instagram.com/aymantaha.xyz" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="mailto:aymantaha89pp@gmail.com">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+        <p class="license">All projects released under the MIT License</p>
+        <p>© 2026 Ayman Taha. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Project card click handler
+        document.querySelectorAll('.project-card').forEach((card) => {
+            card.addEventListener('click', function() {
+                window.open('https://github.com/aymantaha3345/GENEXUS-AI', '_blank');
+            });
+        });
+
+        // Real PayPal donation button handler
+        document.getElementById('donateButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            const amountInput = document.getElementById('donationAmount');
+            let amount = parseFloat(amountInput.value);
+            
+            if (!amount || amount <= 0 || isNaN(amount)) {
+                amount = 10.00; // Default value if invalid
+                amountInput.value = amount.toFixed(2);
+            }
+            
+            // Format amount for PayPal (2 decimal places)
+            const formattedAmount = amount.toFixed(2);
+            
+            // PayPal donation link with business email and amount
+            const paypalUrl = `https://www.paypal.com/donate/?business=aymantaha89pp@gmail.com&amount=${formattedAmount}&currency_code=USD&item_name=Support+Open-Source+Development`;
+            
+            // Open PayPal in new tab
+            window.open(paypalUrl, '_blank');
+        });
+
+        // Star button handler for GitHub
+        document.querySelectorAll('.btn-secondary').forEach(btn => {
+            if (btn.innerHTML.includes('fa-star')) {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    window.open('https://github.com/aymantaha3345/GENEXUS-AI', '_blank');
+                });
+            }
+        });
+
+        // Add subtle animation to project cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles for animation
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Trigger animation after a short delay
+        setTimeout(() => {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            });
+        }, 300);
+
+        // Validate donation amount input
+        document.getElementById('donationAmount').addEventListener('change', function() {
+            let value = parseFloat(this.value);
+            if (isNaN(value) || value < 0) {
+                this.value = '10.00';
+            } else {
+                this.value = value.toFixed(2);
+            }
+        });
+        
+        // Format on input
+        document.getElementById('donationAmount').addEventListener('blur', function() {
+            let value = parseFloat(this.value);
+            if (!isNaN(value) && value >= 0) {
+                this.value = value.toFixed(2);
+            }
+        });
+    </script>
+</body>
+</html>
