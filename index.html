@@ -1,11 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayman Taha | Developer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css  ">
+    <link href="https://fonts.googleapis.com/css2?family=Inter  :wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #3b82f6;
@@ -30,7 +31,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, var(--darker) 0%, #0a192f 50%, #0f172a 100%);
+            background: linear-gradient(135deg, var(--darker) 0%, #0a192f 50%, var(--darker) 100%);
             color: var(--light);
             line-height: 1.6;
             min-height: 100vh;
@@ -309,7 +310,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* 3 columns on large screens */
             gap: 40px;
             justify-items: center;
         }
@@ -600,21 +601,23 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1200px) {
+        @media (min-width: 1201px) {
             .projects-grid {
-                grid-template-columns: 1fr;
-                max-width: 800px;
-                margin: 0 auto;
+                grid-template-columns: repeat(3, 1fr); /* 3 columns on very large screens */
             }
         }
 
-        @media (max-width: 1024px) {
-            .project-banner {
-                aspect-ratio: 16 / 5;
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium-large screens */
             }
         }
 
         @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr; /* 1 column on small screens */
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -705,10 +708,10 @@
             </p>
             
             <div class="social-icons">
-                <a href="https://github.com/aymantaha3345" class="social-icon" target="_blank" title="GitHub">
+                <a href="https://github.com/aymantaha3345  " class="social-icon" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://instagram.com/aymantaha.xyz" class="social-icon" target="_blank" title="Instagram">
+                <a href="https://instagram.com/aymantaha.xyz  " class="social-icon" target="_blank" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="mailto:aymantaha89pp@gmail.com" class="social-icon" title="Email">
@@ -745,7 +748,7 @@
                         </div>
                     </div>
                     <div class="project-banner-container">
-                        <img src="https://github.com/aymantaha3345/GENEXUS-AI/raw/main/src/Banner.jpg?raw=true" 
+                        <img src="https://github.com/aymantaha3345/GENEXUS-AI/raw/main/src/Banner.jpg?raw=true  " 
                              alt="GENEXUS-AI Banner" 
                              class="project-banner">
                     </div>
@@ -763,19 +766,60 @@
                             <span class="tech-tag">Open Source</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/aymantaha3345/GENEXUS-AI" class="btn btn-primary" target="_blank">
+                            <a href="https://github.com/aymantaha3345/GENEXUS-AI  " class="btn btn-primary" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
                                 View Code
                             </a>
-                            <a href="https://github.com/aymantaha3345/GENEXUS-AI" class="btn btn-secondary" target="_blank" onclick="event.stopPropagation();">
+                            <a href="https://github.com/aymantaha3345/GENEXUS-AI  " class="btn btn-secondary" target="_blank" onclick="event.stopPropagation();">
                                 <i class="fas fa-star"></i>
                                 Star Project
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+
+                <!-- Project 2: memorai -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="window-controls">
+                            <div class="window-control"></div>
+                            <div class="window-control"></div>
+                            <div class="window-control"></div>
+                        </div>
+                        <div class="project-folder">
+                            <i class="fas fa-folder"></i>memorai/
+                        </div>
+                    </div>
+                    <div class="project-banner-container">
+                        <img src="https://github.com/aymantaha3345/MEMORAI/raw/main/Banner.jpg?raw=true" 
+                             alt="memorai Banner" 
+                             class="project-banner">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">memorai</h3>
+                        <p class="project-description">
+                            A persistent AI memory server designed to store, retrieve, and manage conversational context and personalization data. 
+                            Built with Python and optimized for long-term memory persistence in AI applications.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Memory</span>
+                            <span class="tech-tag">Persistence</span>
+                            <span class="tech-tag">Open Source</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/aymantaha3345/memorai  " class="btn btn-primary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Code
+                            </a>
+                            <a href="https://github.com/aymantaha3345/memorai  " class="btn btn-secondary" target="_blank" onclick="event.stopPropagation();">
+                                <i class="fas fa-star"></i>
+                                Star Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
         
         <section id="support" class="support-section">
@@ -786,11 +830,11 @@
             </p>
             
             <div class="support-actions">
-                <a href="https://github.com/aymantaha3345/GENEXUS-AI" class="btn btn-secondary" target="_blank">
+                <a href="https://github.com/aymantaha3345/GENEXUS-AI  " class="btn btn-secondary" target="_blank">
                     <i class="fas fa-star"></i>
                     Star Repository
                 </a>
-                <a href="https://instagram.com/aymantaha.xyz" class="btn btn-pink" target="_blank">
+                <a href="https://instagram.com/aymantaha.xyz  " class="btn btn-pink" target="_blank">
                     <i class="fab fa-instagram"></i>
                     Follow Updates
                 </a>
@@ -817,10 +861,10 @@
 
     <footer class="container">
         <div class="footer-links">
-            <a href="https://github.com/aymantaha3345" target="_blank">
+            <a href="https://github.com/aymantaha3345  " target="_blank">
                 <i class="fab fa-github"></i> github
             </a>
-            <a href="https://instagram.com/aymantaha.xyz" target="_blank">
+            <a href="https://instagram.com/aymantaha.xyz  " target="_blank">
                 <i class="fab fa-instagram"></i> instagram
             </a>
             <a href="mailto:aymantaha89pp@gmail.com">
@@ -936,7 +980,8 @@ const typewriterTexts = [
         // Project card click handler
         document.querySelectorAll('.project-card').forEach((card) => {
             card.addEventListener('click', function() {
-                window.open('https://github.com/aymantaha3345/GENEXUS-AI', '_blank');
+                const projectLink = this.querySelector('.btn-primary').href;
+                window.open(projectLink, '_blank');
             });
         });
 
@@ -961,7 +1006,8 @@ const typewriterTexts = [
             if (btn.innerHTML.includes('fa-star')) {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    window.open('https://github.com/aymantaha3345/GENEXUS-AI', '_blank');
+                    const projectLink = this.href;
+                    window.open(projectLink, '_blank');
                 });
             }
         });
@@ -1017,3 +1063,4 @@ const typewriterTexts = [
     </script>
 </body>
 </html>
+```
